@@ -17,6 +17,62 @@ class Sticky_Menu_Builder {
 	 */
 	public function __construct() {
 
+		add_shortcode( 'sticky-menu', array( $this, 'create_menu' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_scripts' ) );
+
+	}
+
+	/**
+	 * Load scripts and styles
+	 *
+	 * @since  1.0.0
+	 */
+	public function add_scripts() {
+
+		wp_enqueue_script(
+			'sticky-menu-scripts',
+			STICKY_MENU_PLUGIN_URL . 'assets/scripts.js',
+			array( 'jquery' ), STICKY_MENU_VERSION,
+			true
+		);
+
+		wp_enqueue_style(
+			'sticky-menu-styles',
+			STICKY_MENU_PLUGIN_URL . 'assets/styles.css',
+			array(),
+			STICKY_MENU_VERSION
+		);
+
+	}
+
+	/**
+	 * Create menu from all headers
+	 *
+	 * @since 1.0.0
+	 */
+	private function create_menu() {
+		?>
+			<div class="sticky-menu">
+				<div class="sticky-menu__title">Inhaltsverzeichnis</div>
+				<ul class="sticky-menu__elements">
+					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
+					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
+					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
+					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
+					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
+					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
+				</ul>
+			</div>
+		<?php
+	}
+
+	/**
+	 * Display menu
+	 *
+	 * @since 1.0.0
+	 */
+	private function show() {
+
 	}
 
 }
