@@ -18,7 +18,7 @@ class Sticky_Menu_Builder {
 	public function __construct() {
 
 		add_shortcode( 'sticky-menu', array( $this, 'create_menu' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts' ) );
 
 	}
 
@@ -49,30 +49,20 @@ class Sticky_Menu_Builder {
 	 * Create menu from all headers
 	 *
 	 * @since 1.0.0
-	 */
-	private function create_menu() {
-		?>
-			<div class="sticky-menu">
-				<div class="sticky-menu__title">Inhaltsverzeichnis</div>
-				<ul class="sticky-menu__elements">
-					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
-					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
-					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
-					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
-					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
-					<li class="sticky-menu-element">1. YouTube-Video: Impingement-Syndrom</li>
-				</ul>
-			</div>
-		<?php
-	}
-
-	/**
-	 * Display menu
 	 *
-	 * @since 1.0.0
+	 * @param array $args
+	 *
+	 * @return string
 	 */
-	private function show() {
+	public function create_menu( $args = array() ) {
 
+		$title = !empty($args['title']) ? $args['title'] : 'Inhaltsverzeichnis';
+		$html = '<div class="sticky-menu">
+				<div class="sticky-menu__title"><h3>' . esc_attr($title) . '</h3></div>
+				<ol class="sticky-menu__elements"></ol>
+			</div>';
+
+		return $html;
 	}
 
 }

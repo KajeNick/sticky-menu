@@ -1,0 +1,28 @@
+.sticky-menu .sticky-menu__title {
+  padding-left: 30px;
+  position: relative;
+}
+.sticky-menu .sticky-menu__title:before {
+  content: '';
+  position: absolute;
+  background-image: url("img/burger.png");
+  width: 20px;
+  height: 16px;
+  left: 0px;
+  top: 8px;
+}
+.sticky-menu .sticky-menu__elements {
+  line-height: 1.9;
+}
+.sticky-menu .sticky-menu__elements .sticky-menu-element {
+  font-size: 16px;
+  color: #243543;
+  cursor: pointer;
+}
+.sticky-menu .sticky-menu__elements .sticky-menu-element.sm-active {
+  font-weight: bolder;
+}
+.sticky-menu .sticky-menu__elements .sticky-menu-element:hover {
+  font-weight: bolder;
+}
+/*# sourceMappingURL=styles.css.map */
