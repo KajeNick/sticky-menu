@@ -3,7 +3,7 @@ WordPress plugin, for create menu from headline elements from page to menu.
 
 For display, use shortcode ```[sticky-menu title="Menu title"]```
 
-See example: 
+See example: https://youtu.be/CpJkZBpBOZc
 
 For add element text to stick menu, just add ```data-stick="true"``` attribute.
 
