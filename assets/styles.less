@@ -1,34 +1,65 @@
 .sticky-menu {
+  counter-reset: sm-counter;
+
   .sticky-menu__title {
     padding-left: 30px;
     position: relative;
 
-    &:before {
-      content: '';
-      position: absolute;
-      background-image: url("img/burger.png");
+    .sm-icon {
+      fill: #033743;
       width: 20px;
-      height: 16px;
+      height: 20px;
       left: 0px;
       top: 8px;
+      position: absolute;
     }
   }
 
   .sticky-menu__elements {
     line-height: 1.9;
+    list-style: none;
 
     .sticky-menu-element {
       font-size: 16px;
-      color: #243543;
+      color: #033743;
       cursor: pointer;
+      padding-left: 0;
 
       &.sm-active {
         font-weight: bolder;
+        color: #033743;
       }
 
       &:hover {
         font-weight: bolder;
       }
+
+      &:before {
+        counter-increment: sm-counter;
+        position: absolute;
+        left: 0;
+        content: counter(sm-counter) ". ";
+        color: #033743;
+        font-weight: 500;
+      }
     }
+  }
+}
+
+@media screen and (max-width: 549px) {
+
+  .sticky-menu__title {
+    display: none;
+  }
+
+  .sticky-menu {
+    width: 100%;
+    position: relative;
+  }
+}
+@media screen and (max-width: 800px) {
+
+  .sticky-menu__elements {
+    padding-left: 5px;
   }
 }

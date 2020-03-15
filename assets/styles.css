@@ -1,28 +1,55 @@
+.sticky-menu {
+  counter-reset: sm-counter;
+}
 .sticky-menu .sticky-menu__title {
   padding-left: 30px;
   position: relative;
 }
-.sticky-menu .sticky-menu__title:before {
-  content: '';
-  position: absolute;
-  background-image: url("img/burger.png");
+.sticky-menu .sticky-menu__title .sm-icon {
+  fill: #033743;
   width: 20px;
-  height: 16px;
+  height: 20px;
   left: 0px;
   top: 8px;
+  position: absolute;
 }
 .sticky-menu .sticky-menu__elements {
   line-height: 1.9;
+  list-style: none;
 }
 .sticky-menu .sticky-menu__elements .sticky-menu-element {
   font-size: 16px;
-  color: #243543;
+  color: #033743;
   cursor: pointer;
+  padding-left: 0;
 }
 .sticky-menu .sticky-menu__elements .sticky-menu-element.sm-active {
   font-weight: bolder;
+  color: #033743;
 }
 .sticky-menu .sticky-menu__elements .sticky-menu-element:hover {
   font-weight: bolder;
+}
+.sticky-menu .sticky-menu__elements .sticky-menu-element:before {
+  counter-increment: sm-counter;
+  position: absolute;
+  left: 0;
+  content: counter(sm-counter) ". ";
+  color: #033743;
+  font-weight: 500;
+}
+@media screen and (max-width: 549px) {
+  .sticky-menu__title {
+    display: none;
+  }
+  .sticky-menu {
+    width: 100%;
+    position: relative;
+  }
+}
+@media screen and (max-width: 800px) {
+  .sticky-menu__elements {
+    padding-left: 5px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

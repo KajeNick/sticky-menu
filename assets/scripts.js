@@ -7,9 +7,14 @@ jQuery(document).ready(function ($) {
             canScroll = true;
 
         $('*[data-stick="true"]').each(function () {
-            let that = $(this);
+            let that = $(this),
+                lnkText = that.html();
 
-            elements.append('<li class="sticky-menu-element" data-sm_to="' + count + '" >' + that.html() + '</li>');
+            if (undefined !== that.data('sm_title')) {
+                lnkText = that.data('sm_title');
+            }
+
+            elements.append('<li class="sticky-menu-element" data-sm_to="' + count + '" >' + lnkText + '</li>');
             that.attr('data-sm_ancor', count);
             positionSticks.push([count, that.offset().top]);
             count++;
@@ -21,7 +26,7 @@ jQuery(document).ready(function ($) {
             }
 
             let windowTop = $(window).scrollTop(),
-                windowsBot = $(window).scrollTop()  + ($(window).height() / 3) * 2;
+                windowsBot = $(window).scrollTop()  + $(window).height() / 6;
 
             for (let i = 0; i < positionSticks.length; i++) {
 
